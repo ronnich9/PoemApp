@@ -1,4 +1,4 @@
-package com.feriramara.ukrainianapp;
+package com.feriramara.ukrainianapp.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,24 +10,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
+
+import com.feriramara.ukrainianapp.Card;
+import com.feriramara.ukrainianapp.DBHelper;
+import com.feriramara.ukrainianapp.R;
+import com.feriramara.ukrainianapp.ScrollingActivity;
 import com.feriramara.ukrainianapp.adapters.CardAdapter;
 
 import java.util.ArrayList;
 
-/**
- * Created by Alex on 21.02.2018.
- */
 
-public class Tab1fragment extends Fragment implements CardAdapter.OnItemClickListener {
+
+public class FragmentBest extends Fragment implements CardAdapter.OnItemClickListener {
 
     RecyclerView mRecyclerView;
     CardAdapter mCardAdapter;
     DBHelper dbHelper;
     ArrayList<Card> mList;
-    RecyclerView.LayoutManager mLayoutManager;
-    ListView mListView;
     private Parcelable recyclerViewState;
 
     private static final String TAG = "Tab1Fragment";
@@ -57,7 +57,7 @@ public class Tab1fragment extends Fragment implements CardAdapter.OnItemClickLis
         mList = new ArrayList<>();
         dbHelper = new DBHelper(getContext());
 
-        mList = dbHelper.getAllPoems();
+        mList = dbHelper.getBestPoems();
 
         mCardAdapter = new CardAdapter(mList, getContext());
         mRecyclerView.setAdapter(mCardAdapter);

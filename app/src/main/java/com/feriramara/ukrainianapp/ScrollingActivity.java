@@ -2,7 +2,6 @@ package com.feriramara.ukrainianapp;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -10,16 +9,14 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import static com.feriramara.ukrainianapp.Tab1fragment.EXTRA_AUTHOR;
-import static com.feriramara.ukrainianapp.Tab1fragment.EXTRA_ID;
-import static com.feriramara.ukrainianapp.Tab1fragment.EXTRA_IMAG;
-import static com.feriramara.ukrainianapp.Tab1fragment.EXTRA_TEXT;
-import static com.feriramara.ukrainianapp.Tab1fragment.EXTRA_TITLE;
+import static com.feriramara.ukrainianapp.fragments.FragmentBest.EXTRA_AUTHOR;
+import static com.feriramara.ukrainianapp.fragments.FragmentBest.EXTRA_ID;
+import static com.feriramara.ukrainianapp.fragments.FragmentBest.EXTRA_IMAG;
+import static com.feriramara.ukrainianapp.fragments.FragmentBest.EXTRA_TEXT;
+import static com.feriramara.ukrainianapp.fragments.FragmentBest.EXTRA_TITLE;
 
 public class ScrollingActivity extends AppCompatActivity {
 
@@ -85,18 +82,91 @@ public class ScrollingActivity extends AppCompatActivity {
 
         switch (author) {
             case "Леся Українка":
+                imgBIG = R.drawable.lesa2;
                 break;
             case "Тарас Шевченко":
                 imgBIG = R.drawable.taras2;
                 break;
             case "Ліна Костенко":
+                imgBIG = R.drawable.lina2;
                 break;
             case "Василь Стус":
+                imgBIG = R.drawable.stus2;
                 break;
             case "Іван Франко":
+                imgBIG = R.drawable.franko2;
+                break;
+            case "Андрій Малишко":
+                imgBIG = R.drawable.andrii2;
+                break;
+            case "Борис Грінченко":
+                imgBIG = R.drawable.boris2;
+                break;
+            case "Євген Маланюк":
+                imgBIG = R.drawable.malanjuk2;
+                break;
+            case "Іван Драч":
+                imgBIG = R.drawable.drach2;
+                break;
+            case "Микола Хвильовий":
+                imgBIG = R.drawable.mykola2;
+                break;
+            case "Микола Сингаївський":
+                imgBIG = R.drawable.syngajivskyj2;
+                break;
+            case "Микола Вінграновський":
+                imgBIG = R.drawable.vingranovsky2;
+                break;
+            case "Олег Ольжич":
+                imgBIG = R.drawable.olzhych2;
+                break;
+            case "Олена Теліга":
+                imgBIG = R.drawable.teliga2;
+                break;
+            case "Олесь Гончар":
+                imgBIG = R.drawable.gonchar2;
+                break;
+            case "Олекса Стефанович":
+                imgBIG = R.drawable.olexa2;
+                break;
+            case "Олександр Олесь":
+                imgBIG = R.drawable.oles2;
+                break;
+            case "Оксана Лятуринська":
+                imgBIG = R.drawable.oxana2;
+                break;
+            case "Пантелеймон Куліш":
+                imgBIG = R.drawable.kulish2;
+                break;
+            case "Павло Тичина":
+                imgBIG = R.drawable.pavlo2;
+                break;
+            case "Петро Перебийніс":
+                imgBIG = R.drawable.petro2;
+                break;
+            case "Максим Рильський":
+                imgBIG = R.drawable.maxim2;
+                break;
+            case "Степан Руданський":
+                imgBIG = R.drawable.stepan2;
+                break;
+            case "Тодось Осьмачка":
+                imgBIG = R.drawable.osmachka2;
+                break;
+            case "Симоненко Василь":
+                imgBIG = R.drawable.simonenko2;
+                break;
+            case "Володимир Самійленко":
+                imgBIG = R.drawable.samiylenko2;
+                break;
+            case "Володимир Сосюра":
+                imgBIG = R.drawable.sosyura2;
+                break;
+            case "Юрій Тарнавський":
+                imgBIG = R.drawable.tarnavskiy2;
                 break;
             default:
-                imgBIG = R.drawable.ic_launcher_foreground;
+                imgBIG = R.drawable.default_big;
                 break;
 
 
@@ -105,12 +175,10 @@ public class ScrollingActivity extends AppCompatActivity {
 
         mTextView.setText(text);
         mTextView.setTextColor(Color.parseColor("#282828"));
-        mTextView.setTextSize(17);
         toolbar.setTitle(title);
         layout.setBackgroundResource(imgBIG);
 
     }
-
 
 
 }

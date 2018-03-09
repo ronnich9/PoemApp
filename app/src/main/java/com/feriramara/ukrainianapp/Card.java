@@ -1,8 +1,5 @@
 package com.feriramara.ukrainianapp;
 
-/**
- * Created by Alex on 21.02.2018.
- */
 
 public class Card {
 

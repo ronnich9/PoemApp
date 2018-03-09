@@ -13,9 +13,7 @@ import com.feriramara.ukrainianapp.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by Alex on 21.02.2018.
- */
+
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
 
@@ -23,7 +21,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
     private Context mContext;
     private OnItemClickListener mListener;
     private int img;
-    private int imgBIG;
 
     public interface OnItemClickListener {
         void onItemClick(int position);
@@ -92,24 +89,90 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder> {
         switch (author) {
             case "Леся Українка":
                 img = R.drawable.lesya;
-//                imgBIG = R.drawable.lesa2;
                 break;
             case "Тарас Шевченко":
                 img = R.drawable.taras;
-//                imgBIG = R.drawable.taras2;
                 break;
             case "Ліна Костенко":
-                img = R.drawable.lina;
+                img = R.drawable.lina_kostenko;
                 break;
             case "Василь Стус":
-                img = R.drawable.stus;
+                img = R.drawable.vasyl_stus;
                 break;
             case "Іван Франко":
-                img = R.drawable.franko;
+                img = R.drawable.ivan_franko;
+                break;
+            case "Андрій Малишко":
+                img = R.drawable.andrii_malyshko;
+                break;
+            case "Борис Грінченко":
+                img = R.drawable.borys_grinchenko;
+                break;
+            case "Євген Маланюк":
+                img = R.drawable.evgen_malanyuk;
+                break;
+            case "Іван Драч":
+                img = R.drawable.ivan_drach;
+                break;
+            case "Микола Хвильовий":
+                img = R.drawable.mykola_hvylovy;
+                break;
+            case "Микола Сингаївський":
+                img = R.drawable.mykola_syngaisvkii;
+                break;
+            case "Микола Вінграновський":
+                img = R.drawable.mykola_vigranovsky;
+                break;
+            case "Олег Ольжич":
+                img = R.drawable.oleg_olzhych;
+                break;
+            case "Олена Теліга":
+                img = R.drawable.olena_teliga;
+                break;
+            case "Олесь Гончар":
+                img = R.drawable.oles_gonchar;
+                break;
+            case "Олекса Стефанович":
+                img = R.drawable.olexa_stefanovych;
+                break;
+            case "Олександр Олесь":
+                img = R.drawable.olexandr_oles;
+                break;
+            case "Оксана Лятуринська":
+                img = R.drawable.oxana_lyaturinska;
+                break;
+            case "Пантелеймон Куліш":
+                img = R.drawable.panteleimon_kulish;
+                break;
+            case "Павло Тичина":
+                img = R.drawable.pavlo_tychyna;
+                break;
+            case "Петро Перебийніс":
+                img = R.drawable.petro_perebiynis;
+                break;
+            case "Максим Рильський":
+                img = R.drawable.rylskyy_maksym;
+                break;
+            case "Степан Руданський":
+                img = R.drawable.stepan_rudansky;
+                break;
+            case "Тодось Осьмачка":
+                img = R.drawable.todos_osmachka;
+                break;
+            case "Симоненко Василь":
+                img = R.drawable.vasyl_simonenko;
+                break;
+            case "Володимир Самійленко":
+                img = R.drawable.volodymyr_samiylenko;
+                break;
+            case "Володимир Сосюра":
+                img = R.drawable.volodymyr_sosyura;
+                break;
+            case "Юрій Тарнавський":
+                img = R.drawable.yuri_tarnavsly;
                 break;
             default:
-                img = R.drawable.ic_launcher_background;
-                imgBIG = R.drawable.ic_launcher_foreground;
+                img = R.drawable.default_small1;
                 break;
 
 

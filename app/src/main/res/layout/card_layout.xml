@@ -46,7 +46,8 @@
                 android:maxLines="1"
                 android:text="Hello World!"
                 android:textStyle="bold"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:textColor="@color/colorAccent"/>
 
             <ImageView
                 android:id="@+id/favor_imageview"

@@ -1,6 +1,8 @@
-package com.feriramara.ukrainianapp;
+package com.feriramara.ukrainianapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,34 +13,40 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.feriramara.ukrainianapp.Card;
+import com.feriramara.ukrainianapp.DBHelper;
+import com.feriramara.ukrainianapp.R;
+import com.feriramara.ukrainianapp.ScrollingActivity;
 import com.feriramara.ukrainianapp.adapters.CardAdapter;
-import com.feriramara.ukrainianapp.adapters.CardAdapterByAuthor;
 
 import java.util.ArrayList;
 
-/**
- * Created by Alex on 21.02.2018.
- */
 
-public class Tab2fragment extends Fragment implements CardAdapter.OnItemClickListener {
+public class FragmentByAuthor extends Fragment implements CardAdapter.OnItemClickListener {
 
     RecyclerView mRecyclerView;
     CardAdapter mCardAdapter;
     DBHelper dbHelper;
     ArrayList<Card> mList;
-    RecyclerView.LayoutManager mLayoutManager;
+    private Parcelable recyclerViewState;
+    private int pozition;
+
+
+    public static final String EXTRA_TEXT = "text";
+    public static final String EXTRA_TITLE = "title";
+    public static final String EXTRA_IMAG = "image";
+    public static final String EXTRA_AUTHOR = "author";
+    public static final String EXTRA_ID = "id";
 
     View v;
-
     String mString[] = {"Тарас Шевченко", "Леся Українка", "Ліна Костенко", "Іван Франко",
             "Василь Стус", "Володимир Сосюра", "Олесь Гончар", "Євген Маланюк",
-            "Олександр Олесь", "Василь Симоненко", "Олена Теліга", "Максим Рильський", "Руданський Степан",
+            "Олександр Олесь", "Симоненко Василь", "Олена Теліга", "Максим Рильський",
             "Олег Ольжич", "Оксана Лятуринська", "Володимир Самійленко", "Юрій Тарнавський",
             "Пантелеймон Куліш", "Микола Вінграновський", "Андрій Малишко", "Олекса Стефанович",
             "Іван Драч", "Тодось Осьмачка", "Павло Тичина", "Степан Руданський", "Петро Перебийніс", "Борис Грінченко",
-            "Сингаївський Микола", "Антонич Богдан-Ігор"};
+            "Микола Сингаївський", "Микола Хвильовий"};
 
     private static final String TAG = "Tab2Fragment";
 
@@ -56,28 +64,29 @@ public class Tab2fragment extends Fragment implements CardAdapter.OnItemClickLis
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                if (position == 0) {
-                    Toast.makeText(getContext(), "You ckicked: " + mString[0], Toast.LENGTH_SHORT).show();
-                    loadDatabase();
+                pozition = position;
+
                     mRecyclerView.setVisibility(View.VISIBLE);
                     mListView.setVisibility(View.INVISIBLE);
 
-                }
+                    loadDatabase(mString[position]);
+
+
             }
         });
 
         return v;
     }
 
-    public void loadDatabase() {
+
+    public void loadDatabase(String author) {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mList = new ArrayList<>();
         dbHelper = new DBHelper(getContext());
 
 
-        mList = dbHelper.getAllPoems();
-
+        mList = dbHelper.getPoemsByAuthor(author);
 
 
         mCardAdapter = new CardAdapter(mList, getContext());
@@ -87,37 +96,31 @@ public class Tab2fragment extends Fragment implements CardAdapter.OnItemClickLis
 
     @Override
     public void onItemClick(int position) {
+        Intent intent = new Intent(getActivity(), ScrollingActivity.class);
+        Card card = mList.get(position);
 
+        intent.putExtra(EXTRA_ID, card.getId());
+        intent.putExtra(EXTRA_TEXT, card.getText());
+        intent.putExtra(EXTRA_TITLE, card.getPoetryName());
+        intent.putExtra(EXTRA_IMAG, card.getFavorites());
+        intent.putExtra(EXTRA_AUTHOR, card.getAuthorName());
+        startActivity(intent);
     }
 
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadDatabase(mString[pozition]);
+        mRecyclerView.getLayoutManager().onRestoreInstanceState(recyclerViewState);//restore
 
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-////        loadDatabase();
-//    }
+    }
 
-//    @Override
-//    public void onItemClick(int position) {
-//
-//    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        recyclerViewState = mRecyclerView.getLayoutManager().onSaveInstanceState();//save
+    }
 
-//    public void loadDatabase() {
-//        mRecyclerView.setHasFixedSize(true);
-//        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-//        mList = new ArrayList<>();
-//        dbHelper = new DBHelper(getContext());
-//
-//
-////        mList = dbHelper.getAllFavorites();
-//        mList = dbHelper.getCardsByAuthor("Тарас Шевченко");
-//
-//
-//
-////        mCardAdapter = new CardAdapter(mList, getContext());
-//        mCardAdapter = new CardAdapterByAuthor(mList, getContext());
-//        mRecyclerView.setAdapter(mCardAdapter);
-//        mCardAdapter.setOnItemClickListener(this);
-//    }
+
 }

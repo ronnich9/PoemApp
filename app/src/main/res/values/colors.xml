@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#484848</color>
+    <color name="colorPrimary">#FFDDDCDC</color>
     <color name="colorPrimaryDark">#ffffff</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent">#202020</color>
+    <color name="background_appbar">#252525</color>
+    <color name="toolbar">#252525</color>
+
+
+
     <color name="background_material_light">#dddcdc</color>
     <color name="background_material_dark">#c6c6c6</color>
     <color name="primary_material_light">#b4b5b4</color>

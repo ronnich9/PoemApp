@@ -25,7 +25,10 @@
             android:theme="@style/AppTheme">
 
         </activity>
+        <activity android:name=".Settings"
+            android:theme="@style/Theme.MyTheme">
 
+        </activity>
     </application>
 
 </manifest>

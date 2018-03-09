@@ -2,9 +2,17 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
+    <View
+        android:id="@+id/shadow_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fragment4"/>
+        android:layout_height="4dp"
+        android:background="@drawable/dropshadow" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"/>
+
 
 </RelativeLayout>
