@@ -1,7 +1,10 @@
 package com.feriramara.ukrainianapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -23,6 +26,7 @@ public class ScrollingActivity extends AppCompatActivity {
     TextView mTextView;
     private int imgBIG;
     DBHelper localDB;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
